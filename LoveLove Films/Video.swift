@@ -50,7 +50,7 @@ func buildVideos() -> [Video] {
     
     let videoSix = Video()
     videoSix.title = "BESPOKE"
-    videoSix.description = "The Brief \n\n\n\nThe Process \n\n\n\nThe Result \n\n"
+    videoSix.description = "TLoveLove were commissioned by Barclaycard to create an advert for their Bespoke Offers app. The client needed something that would both show its ease of use and that it is a luxury convenience app. We created an advert that incorporated animated graphics around a live action rendition of the app being used. The finished video promotes to the audience how they can easily access offers in a concise and appealing manner."
     videoSix.id = "Zw7LjDKqnio"
     videos.append(videoSix)
     
