@@ -56,8 +56,6 @@ class StyleController: UIViewController{
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-
-        print(partVar)
        
     }
     

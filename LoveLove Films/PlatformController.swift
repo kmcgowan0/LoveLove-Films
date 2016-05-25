@@ -44,15 +44,13 @@ class PlatformController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         videoPlatform = row
         platformVar = platform[row]
-        print(platform[row])
+        
     }
     
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-
-        print(platformVar)
+     
        
     }
     

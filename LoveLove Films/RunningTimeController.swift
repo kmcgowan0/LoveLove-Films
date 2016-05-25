@@ -47,7 +47,7 @@ class RunningTimeController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        print(videoRunTimeVar)
+        
        
     }
     

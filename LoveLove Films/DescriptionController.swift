@@ -55,7 +55,7 @@ class DescriptionController: UIViewController, UITextFieldDelegate{
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
        descriptionVar = descriptionText.text!
-        print(descriptionVar)
+        
       
     }
     

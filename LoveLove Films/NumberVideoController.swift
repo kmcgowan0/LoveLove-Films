@@ -50,7 +50,7 @@ class NumberVideoController: UIViewController{
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         videoNumberVar = videoNumber.text!
-        print(videoNumberVar)
+        
       
         
     }

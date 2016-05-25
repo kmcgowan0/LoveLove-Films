@@ -88,7 +88,7 @@ class ProjectNameController: UIViewController {
         
         clientNameVar = clientNameTextField.text!
         projectTitleVar = projectTextField.text!
-        print(clientNameVar, projectTitleVar)
+        
         
     }
 

@@ -53,7 +53,7 @@ class LocationController: UIViewController, UITextFieldDelegate{
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
         locationVar = locationText.text!
-        print(locationVar)
+        
         
     }
 

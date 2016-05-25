@@ -57,8 +57,6 @@ class VideoTypeController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        print(videoTypeVar)
-       
- 
+      
     }
 }

@@ -108,7 +108,7 @@ class SummaryController: UIViewController, MFMailComposeViewControllerDelegate{
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
         
         //touch only things in this block
-        mailComposerVC.setToRecipients(["katiemcgoo@hotmail.co.uk", "\(emailVar)"])
+        mailComposerVC.setToRecipients(["info@lovelovefilms.com", "\(emailVar)"])
         mailComposerVC.setSubject( "Request from \(clientNameVar)")
         mailComposerVC.setMessageBody("Client details are as follows \n Client Name: \(clientNameVar) \n Project Name: \(projectTitleVar) \n Position: \(videoTypeVar) \n Video Type: \(videoTypeVar) \n Number of Videos: \(videoNumberVar) \n Running Time: \(videoRunTimeVar) \n Deadline: \(deadlineVar) \n Description: \(descriptionVar) \n Part Production: \(voiceoverVar, musicVar, liveSoundVar) \n Type: \(videoExampleVar) \n Number of Characters: \(characterVar) \n Setting: \(locationVar) \n Platform: \(platformVar) \n Budget: \(budgetVar) \n Email: \(emailVar) \n Phone Number: \(phoneNumberVar) \n", isHTML: false)
         //end block
