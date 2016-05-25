@@ -1,25 +1,13 @@
-//
-//  ViewController.swift
-//  LoveLove Films
-//
-//  Created by Kathryn McGowan (i7673473) on 25/05/2016.
-//  Copyright © 2016 Kathryn McGowan (i7673473). All rights reserved.
-//
-
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController{
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+       
+        navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
-
