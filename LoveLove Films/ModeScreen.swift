@@ -12,6 +12,6 @@ class ModeScreen: UIViewController{
         super.viewDidLoad()
         
         let img = UIImage(named: "navbarblue")
-        navigationController?.navigationBar.setBackgroundImage(img, forBarMetrics: .Default)
+        navigationController?.navigationBar.setBackgroundImage(img, for: .default)
     }
 }

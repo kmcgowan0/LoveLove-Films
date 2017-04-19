@@ -13,11 +13,11 @@ class ContactController: UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nextBtn.enabled = true
+        nextBtn.isEnabled = true
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "textChanged:", name: UITextFieldTextDidChangeNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ContactController.textChanged(_:)), name: NSNotification.Name.UITextFieldTextDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: Selector("keyboardWillShow:"), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ContactController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         clientName.text! = clientNameVar
         email.text! = emailVar
@@ -25,12 +25,12 @@ class ContactController: UIViewController, UITextFieldDelegate{
         jobTitleField.text! = jobTitleVar
         
         if emailVar == "" && phoneNumberVar == "" && jobTitleVar == "" {
-            nextBtn.enabled = false
+            nextBtn.isEnabled = false
             
         }
         
     }
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         self.view.endEditing(true)
         
@@ -38,38 +38,38 @@ class ContactController: UIViewController, UITextFieldDelegate{
         
     }
     
-    func textChanged(sender: NSNotification) {
-        if email.hasText() && phoneNumber.hasText() && jobTitleField.hasText() {
-            nextBtn.enabled = true
+    func textChanged(_ sender: Notification) {
+        if email.hasText && phoneNumber.hasText && jobTitleField.hasText {
+            nextBtn.isEnabled = true
         }
         else {
-            nextBtn.enabled = false
+            nextBtn.isEnabled = false
         }
     }
     
     
-    func keyboardWillShow(notification:NSNotification){
+    func keyboardWillShow(_ notification:Notification){
         
         var userInfo = notification.userInfo!
-        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
-        keyboardFrame = self.view.convertRect(keyboardFrame, fromView: nil)
+        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
         
         var contentInset:UIEdgeInsets = self.scrollView.contentInset
         contentInset.bottom = keyboardFrame.size.height/1.5
         self.scrollView.contentInset = contentInset
     }
     
-    func keyboardWillHide(notification:NSNotification){
+    func keyboardWillHide(_ notification:Notification){
         
-        let contentInset:UIEdgeInsets = UIEdgeInsetsZero
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
         self.scrollView.contentInset = contentInset
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         emailVar = email.text!
         phoneNumberVar = phoneNumber.text!

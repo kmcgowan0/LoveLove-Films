@@ -5,16 +5,16 @@ var currentSelection = deadlineVar
 class DeadlineController: UIViewController{
     
 
-    let dateFormatter = NSDateFormatter()
+    let dateFormatter = DateFormatter()
     
     @IBOutlet weak var deadlinePicker: UIDatePicker!
     
     func setDate() {
         
-        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        dateFormatter.dateStyle = DateFormatter.Style.short
 
         
-        deadlineVar = dateFormatter.stringFromDate(deadlinePicker.date)
+        deadlineVar = dateFormatter.string(from: deadlinePicker.date)
         
     }
     
@@ -24,15 +24,15 @@ class DeadlineController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let dateFormatter2 = NSDateFormatter()
+        let dateFormatter2 = DateFormatter()
         dateFormatter2.dateFormat = "MM-dd-yy"
         
         
         
-        deadlinePicker.minimumDate = NSDate()
+        deadlinePicker.minimumDate = Date()
         if deadlineVar != "" {
             
-            let selectedDate = dateFormatter2.dateFromString(deadlineVar)
+            let selectedDate = dateFormatter2.date(from: deadlineVar)
             
             deadlinePicker.setDate(selectedDate!, animated: true)
             
@@ -41,7 +41,7 @@ class DeadlineController: UIViewController{
         
     }
     
-    @IBAction func deadlinePickerAction(sender: AnyObject) {
+    @IBAction func deadlinePickerAction(_ sender: AnyObject) {
         
         setDate()
         
@@ -50,7 +50,7 @@ class DeadlineController: UIViewController{
     }
 
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
      
         

@@ -10,15 +10,15 @@ class VideoViewController: UIViewController {
     var selectedVideo = 0
     
     
-    @IBAction func videoButton(sender: AnyObject) {
+    @IBAction func videoButton(_ sender: AnyObject) {
         selectedVideo = sender.tag!
-        performSegueWithIdentifier("VideoDetail", sender: videos[sender.tag!])
+        performSegue(withIdentifier: "VideoDetail", sender: videos[sender.tag!])
     }
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "VideoDetail" {
-            let vc = segue.destinationViewController as! VideoView
+            let vc = segue.destination as! VideoView
             vc.video = videos[selectedVideo]
         }
         

@@ -51,7 +51,7 @@ class SummaryController: UIViewController, MFMailComposeViewControllerDelegate{
         
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
         
         projectTitleVar = projectText.text!
@@ -72,7 +72,7 @@ class SummaryController: UIViewController, MFMailComposeViewControllerDelegate{
     }
     
     //start email (email form wont work in simulator, you'll need a device to test  )
-    @IBAction func sendEmailButtonTapped(sender: AnyObject) {
+    @IBAction func sendEmailButtonTapped(_ sender: AnyObject) {
         
         projectTitleVar = projectText.text!
         clientNameVar = clientText.text!
@@ -92,7 +92,7 @@ class SummaryController: UIViewController, MFMailComposeViewControllerDelegate{
         
         let mailComposeViewController = configuredMailComposeViewController()
         if MFMailComposeViewController.canSendMail() {
-            self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+            self.present(mailComposeViewController, animated: true, completion: nil)
         } else {
             self.showSendMailErrorAlert()
         }
@@ -120,8 +120,8 @@ class SummaryController: UIViewController, MFMailComposeViewControllerDelegate{
     }
     
     
-    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-        controller.dismissViewControllerAnimated(true, completion: nil)
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
         
     }
     //end email

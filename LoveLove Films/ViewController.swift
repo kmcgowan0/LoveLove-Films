@@ -7,7 +7,7 @@ class ViewController: UIViewController{
         super.viewDidLoad()
         
        
-        navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
+        navigationController?.navigationBar.barTintColor = UIColor.white
         
     }
 }

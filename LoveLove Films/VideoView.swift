@@ -20,7 +20,7 @@ class VideoView: UIViewController {
     @IBOutlet weak var videoDescription2: UITextView!
     
     
-    @IBAction func videoPlay(sender: AnyObject) {
+    @IBAction func videoPlay(_ sender: AnyObject) {
         if videoPlayer.ready {
             videoPlayer.play()
         }

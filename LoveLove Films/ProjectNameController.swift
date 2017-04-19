@@ -30,12 +30,12 @@ class ProjectNameController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        projectTextField.layer.borderColor = myColour.CGColor
-        nextBtn.enabled = false
+        projectTextField.layer.borderColor = myColour.cgColor
+        nextBtn.isEnabled = false
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "textChanged:", name: UITextFieldTextDidChangeNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: "textChanged:", name: NSNotification.Name.UITextFieldTextDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: Selector("keyboardWillShow:"), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: Selector("keyboardWillHide:"), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
     
         projectTextField.text! = projectTitleVar
@@ -44,7 +44,7 @@ class ProjectNameController: UIViewController {
         
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         textField.resignFirstResponder()
         
@@ -52,39 +52,39 @@ class ProjectNameController: UIViewController {
         
     }
     
-    func keyboardWillShow(notification:NSNotification){
+    func keyboardWillShow(_ notification:Notification){
         
         var userInfo = notification.userInfo!
-        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
-        keyboardFrame = self.view.convertRect(keyboardFrame, fromView: nil)
+        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
         
         var contentInset:UIEdgeInsets = self.scrollView.contentInset
         contentInset.bottom = keyboardFrame.size.height/2
         self.scrollView.contentInset = contentInset
     }
     
-    func keyboardWillHide(notification:NSNotification){
+    func keyboardWillHide(_ notification:Notification){
         
-        let contentInset:UIEdgeInsets = UIEdgeInsetsZero
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
         self.scrollView.contentInset = contentInset
     }
     
 
     
-    func textChanged(sender: NSNotification) {
-        if projectTextField.hasText() && clientNameTextField.hasText() {
-            nextBtn.enabled = true
+    func textChanged(_ sender: Notification) {
+        if projectTextField.hasText && clientNameTextField.hasText {
+            nextBtn.isEnabled = true
         }
         else {
-            nextBtn.enabled = false
+            nextBtn.isEnabled = false
         }
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         clientNameVar = clientNameTextField.text!
         projectTitleVar = projectTextField.text!

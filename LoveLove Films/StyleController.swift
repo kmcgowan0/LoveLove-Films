@@ -18,20 +18,20 @@ class StyleController: UIViewController{
     
     
     
-    @IBAction func voiceoverSwitchPressed(sender: AnyObject) {
-        if voiceoverSwitch.on{
+    @IBAction func voiceoverSwitchPressed(_ sender: AnyObject) {
+        if voiceoverSwitch.isOn{
             voiceoverVar = "Voice Over, "
         }
     }
     
-    @IBAction func musicSwitchPressed(sender: AnyObject) {
-        if musicSwitch.on{
+    @IBAction func musicSwitchPressed(_ sender: AnyObject) {
+        if musicSwitch.isOn{
             musicVar = "Music, "
         }
     }
     
-    @IBAction func liveSoundSwitchPressed(sender: AnyObject) {
-        if liveSoundSwitch.on{
+    @IBAction func liveSoundSwitchPressed(_ sender: AnyObject) {
+        if liveSoundSwitch.isOn{
             liveSoundVar = "Live Sound"
         }
     }
@@ -42,19 +42,19 @@ class StyleController: UIViewController{
         super.viewDidLoad()
         
         if voiceoverVar == "Voice Over, " {
-            voiceoverSwitch.on == true
+            voiceoverSwitch.isOn == true
             
         } else  if musicVar == "Music, " {
-            musicSwitch.on == true
+            musicSwitch.isOn == true
             
         } else  if liveSoundVar == "Live Sound, " {
-            liveSoundSwitch.on == true
+            liveSoundSwitch.isOn == true
         }
         
     }
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
        
     }

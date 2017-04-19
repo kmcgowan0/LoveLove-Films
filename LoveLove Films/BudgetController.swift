@@ -10,7 +10,7 @@ class BudgetController: UIViewController{
     @IBOutlet weak var budgetLabel: UILabel!
     let step: Float = 100
     
-    @IBAction func BudgetChanged(sender: AnyObject) {
+    @IBAction func BudgetChanged(_ sender: AnyObject) {
         let currentlVaule = round(budgetSlider.value / step) * step
         budgetLabel.text = "Up to £\(currentlVaule)0"
         budgetVar = budgetLabel.text!
@@ -24,13 +24,13 @@ class BudgetController: UIViewController{
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
 
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       
 
      
